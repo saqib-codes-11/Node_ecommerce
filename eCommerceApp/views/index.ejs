@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+    <head>
+        <meta charset="utf-8">
+        <title>CMPE 226</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width">
+
+        <link rel="stylesheet" href="css/bootstrap.min.css">
+        <link rel="stylesheet" href="css/flat-ui.css">     
+        
+        <link rel="stylesheet" href="css/g-main.css">
+        <link rel="stylesheet" href="css/g-shop.css">
+        <link rel="stylesheet" href="css/g-light.css">
+        
+        <script src="js/vendor/modernizr-2.6.2-respond-1.1.0.min.js"></script>
+        
+    </head>
+    <body>
+        <!--[if lt IE 7]>
+            <p class="chromeframe">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">activate Google Chrome Frame</a> to improve your experience.</p>
+        <![endif]-->
+
+        <script>
+
+    //     	function SearchDB()
+				// {
+				// 	//alert("Welcome!");
+				// 	var text = $("#searchTextBox").val();
+				// 	alert(text);
+				// 	//$.getJSON("/search/"+text);
+
+				// 	$.ajax({
+				// 	    url: '/search'+text,
+				// 	    type: 'GET',
+				// 	    success: function() {  };
+				// 	});
+				// }
+        </script>
+
+		<div class="onofffade"></div>	
+
+        <div class="wrap container">
+		    <header>
+		    	<div class="top-header row">
+			    	<div class="social col-md-4">
+				    	
+			    	</div>
+			    	<div class="logo col-md-4">
+			    		<a href="#">
+			    			
+			    			<!--<div class="animated"><img src="images/example_logo.png" data-src2x="images/example_logo_retina.png" alt=""></div>-->
+			    		</a>
+			    	</div>
+			    	<div class="info col-md-4">
+			    	
+			    	</div>
+		    	</div><!--/.top-header-->	
+		    	
+		        <div class="nav navbar-inverse">
+		            <div class="navbar-inner">
+		                <div class="container">
+		                    <a class="btn navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+		                        <i class="icons">&#9776;</i> MENU
+		                    </a>
+		                    <div class="navbar-collapse collapse">
+		                        <ul class="navbar-nav">
+		                            <li class="active"><a href="index.html"><i class="icons col1-text">&#8962;</i> Home</a></li>
+		                            
+		                            <% for(var i=0; i<category.length; i++) {%>
+		                            	 
+		                            	 <li  class="dropdown" >
+		                            	 	<a href="#" class="dropdown-toggle" data-toggle="dropdown">
+		                            	 		<i class="icons col1-text">&#59197;</i> 
+		                            	   <%= category[i] %> 
+		                            	   		<b class="caret"></b>
+
+
+		                            	   	</a>
+
+
+												<div class="drop-container">
+						                         <ul class="dropdown-menu">
+
+		                            	   	  <% for(var j=0; j<distinctCatSubCat.length; j++) {%>
+		                            	   	
+		                            	   	
+			                            	   	  	
+
+		                            	   	  		<%if(category[i] == distinctCatSubCat[j]._id.productCat) { %>
+		                            	   	  				
+						                                  <li><a href="/category/<%=distinctCatSubCat[j]._id.productSubCat %>"> <%=distinctCatSubCat[j]._id.productSubCat %></a></li>
+		                            	   	  		<% }  %>
+		                            	   	  	
+		                            	   	   <% } %>
+		                            	   	</ul>
+						                    </div>
+
+		                            	 </li>
+		                            <% } %>
+
+				
+
+
+
+
+
+		                            
+		                            <li><a href="contacts.html"><i class="icons col1-text">&#9993;</i> Contacts</a></li>
+		                        </ul>
+		                    </div><!--/.nav-collapse -->
+		                </div>
+		            </div>
+		        </div><!--/.navbar-->
+		        
+		    </header><!--/header -->
+		    
+			<div class="block title-block">
+				<div class="line"></div>
+				<div class="title-info">
+					
+					<div class="page-icon col1">&#59197;</div>
+					<h1>All Products</h1>
+				
+				</div>
+			</div>
+
+            
+            <div class="pagebody">
+            			
+	        	<div class="row body">
+	        	
+		        	<div class="col-md-9 content offset">
+
+							<ul class="shop-list">
+								
+								<li class="list_header">
+     								<div class="meta priceord" id="SortByArea">
+										Price &nbsp;
+										<span class="sort asc" data-sort="data-price" data-order="asc"></span>
+										<span class="sort desc" data-sort="data-price" data-order="desc"></span>
+									</div>
+
+									<div class="meta name active desc" id="SortByName">
+										Name &nbsp;
+										<span class="sort asc active" data-sort="data-name" data-order="desc"></span>
+										<span class="sort desc" data-sort="data-name" data-order="asc"></span>	
+									</div>
+								</li>
+
+								<% 
+
+								for (var i = 0; i < allProducts.length; i++) {
+									var prod = allProducts[i];
+									var price = prod.price.substring(1, prod.price.length);
+
+									 %>
+			                          
+			                          <li id="<%=prod._id%>" class="mix <%= prod.productCat %>" data-name="<%=prod.productName%>" data-price="<%=price%>">
+
+									<a href="#"><div class="img_wrapper"><img src="images/sample/<%=prod.productName%>.png" alt=" "/>
+									<div class="clearfix"></div></div></a>
+									<div class="meta price"><p><%=prod.price%></p></div>
+									<h2 class="title col1-text"><a class="col1-text" href="/products/<%=prod.productName%>"><%=prod.productName%></a></h2>
+									<h4> <%=prod.productDesc%></h4>
+
+									<a class="readmore col2" href="/products/<%=prod.productName%>">Read more</a> <a class="addcart col1" href="#">+</a>
+								</li>
+
+								<% } %>
+			                
+							</ul>
+
+		            </div><!--3/4 content-->	
+		          
+		            <div class="col-md-3 sidebar col2-alpha">
+
+			          	<h2 class="col2">View</h2>	
+			          	<div class="widget view">	          	
+
+								<div class="group" id="Sorts">
+									<div class="col1 button active" id="ToList"><i class="col1b col1a"></i>List View</div>
+									<div class="col1 button" id="ToGrid"><i class="col1b col1a"></i>Grid View</div>
+								</div>
+
+			          	</div>
+
+			          	<h2 class="col2">Your Cart</h2>	
+			          	<div class="widget side-cart">	 
+
+
+						  	<!--<ul>
+							  	<li class="product1 item-cart active">
+							  		<h4 class="col1-text">Product 1</h4>
+							  		<div>
+							  			<strong>1199,99 €</strong>
+							  			x<span>1</span>
+							  			<a href="#" class="remove">x</a>
+							  		</div>
+							  	</li>
+							  	<li class="product2 item-cart active">
+							  		<h4 class="col1-text">Product 2</h4>
+							  		<div>
+							  			<strong>1299,99 €</strong>
+							  			x<span>1</span>
+							  			<a href="#" class="remove">x</a>
+							  		</div>
+							  	</li>
+							  	<li class="product3 item-cart active">
+							  		<h4 class="col1-text">Product 3</h4>
+							  		<div>
+							  			<strong>499,99 €</strong>
+							  			x<span>1</span>
+							  			<a href="#" class="remove">x</a>
+							  		</div>
+							  	</li>
+						  	</ul>-->
+						  	<p class="subtotal">Subtotal: <strong>00.00 €</strong></p>
+							<p class="taxes">Taxes (10%): <strong>00.00 €</strong></p>
+							<p class="discount">Discount (5%): <strong>00.00 €</strong></p>
+							<p class="delivery">Delivery: <strong>00.00 €</strong></p>
+    						<p class="totalorder">Total: <strong>00.00 €</strong></p>
+    						<a href="checkout.html" class="btn col1 checkoutbtn">Checkout</a>
+			          	</div>
+			          	
+			          	<h2 class="col2">Categories</h2>	
+			          	<div class="widget categories">	          	
+
+			          			<div class="group" id="Filters">
+
+							<ul>
+							<li class="col1-text active col1b" data-filter="all" data-dimension="tags">All</li>
+											
+			          				 <% for(var i=0; i<category.length; i++) {%>
+		                            	 
+		                            	 <li  class="col1-text col1b" data-filter="<%= category[i] %> " data-dimension="tags">
+		                            	 	
+		                            	   <%= category[i] %> 
+		                            	   	
+		                            	   	</a>
+
+		                            	 </li>
+		                            <% } %>
+										</ul>
+								</div>
+			          	</div>
+			          
+		            </div><!--1/3 sidebar-->
+	        	
+	           </div><!-- /row -->
+	          
+            </div><!-- /wrap -->
+            
+            <footer>
+	        	
+            </footer><!-- /footer -->
+            
+	       
+
+       	</div><!-- /container -->
+        
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+        <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.10.2.min.js"><\/script>')</script>
+        <script src="js/vendor/bootstrap.min.js"></script>        
+        <script src="js/vendor/jquery-ui-1.10.0.custom.min.js"></script>
+        
+	    <script src="js/plugins/custom_checkbox_and_radio.js"></script>
+	    <script src="js/plugins/custom_radio.js"></script>
+	    <script src="js/plugins/bootstrap-tooltip.js"></script>
+	    <script src="js/plugins/jquery.placeholder.js"></script>
+	    <script src="js/plugins/jquery.tagsinput.js"></script>
+	    <script src="http://vjs.zencdn.net/c/video.js"></script>
+		<script src="js/plugins/jquery.sequence-min.js"></script>
+		<script src="js/plugins/jquery.mixitup.min.js"></script>
+		<script src="js/plugins/jquery.magnificpopup.js"></script>
+
+        <script src="js/main.js"></script>
+        <script src="js/shop.js"></script>
+
+        <!-- ###### style editor ###### -->
+          <link rel="stylesheet" href="css/g-style-editor.css">
+        <script src="js/plugins/bootstrap-colorpicker.js"></script>
+        <script src="js/skin.js"></script>
+        
+
+        <script src="js/plugins/jquery.cookie.js"></script>
+      
+        <!-- ###### style editor ###### -->
+
+        
+    </body>
+</html>

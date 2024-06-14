@@ -1,0 +1,15 @@
+/* ==========================================================================
+   G theme custom examples css
+   ========================================================================== */
+
+	.imgbody,
+	.imgbody .loading {
+		background: url(../images/bg-image.jpg) fixed center top no-repeat !important;
+		color: #444;
+	}
+	
+	.imgbody .navbar-inverse .navbar-nav li.dropdown > .dropdown-toggle .caret,
+	.imgbody .navbar-inverse .navbar-nav li.dropdown.open > .dropdown-toggle .caret,
+	.imgbody .navbar-inverse .navbar-nav li.dropdown.active > .dropdown-toggle .caret,
+	.imgbody .navbar-inverse .navbar-nav li.dropdown.open.active > .dropdown-toggle .caret { border: 1px solid #666; background: #948A81; }
+	

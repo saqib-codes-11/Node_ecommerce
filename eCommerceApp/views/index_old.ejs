@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+    <head>
+        <meta charset="utf-8">
+        <title>G Template</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width">
+
+        <link rel="stylesheet" href="css/bootstrap.min.css">
+        <link rel="stylesheet" href="css/flat-ui.css">     
+        
+        <link rel="stylesheet" href="css/g-main.css">
+        <link rel="stylesheet" href="css/g-slider.css">
+        <link rel="stylesheet" href="css/g-portfolio.css">
+        <link rel="stylesheet" href="css/g-light.css">
+		
+        <script src="js/vendor/modernizr-2.6.2-respond-1.1.0.min.js"></script>
+        
+    </head>
+    <body class="home">
+        <!--[if lt IE 7]>
+            <p class="chromeframe">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">activate Google Chrome Frame</a> to improve your experience.</p>
+        <![endif]-->
+		<div class="onofffade"></div>	
+		<div class="loading"><p class="col1 animated shake">LOADING</p></div>
+		
+        <div class="wrap container">
+		    <header>
+		    	<div class="top-header row">
+			    	
+			    	
+		    	</div><!--/.top-header-->	    	
+		    	    
+		        <div class="nav navbar-inverse">
+		            <div class="navbar-inner">
+		                <div class="container">
+		                    <a class="btn navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+		                        <i class="icons">&#9776;</i> MENU
+		                    </a>
+		                    <div class="navbar-collapse collapse">
+		                        <ul class="navbar-nav">
+		                            <li class="active"><a href="/"><i class="icons col1-text">&#8962;</i> Home</a></li>
+		                              <% for(var i=0; i<category.length; i++) {%>
+                                   
+                                   <li  class="dropdown" >
+                                    <a href="shop/<%= category[i] %> " class="dropdown-toggle" data-toggle="dropdown">
+                                      <i class="icons col1-text">&#59197;</i> 
+                                     <%= category[i] %> 
+                                        <b class="caret"></b>
+
+
+                                      </a>
+
+
+                              <div class="drop-container">
+                                     <ul class="dropdown-menu">
+
+                                        <% for(var j=0; j<distinctCatSubCat.length; j++) {%>
+
+                                            <%if(category[i] == distinctCatSubCat[j]._id.productCat) { %>
+                                                
+                                              <li><a href="/shop/<%=distinctCatSubCat[j]._id.productSubCat %>"> <%=distinctCatSubCat[j]._id.productSubCat %></a></li>
+                                            <% }  %>
+                                          
+                                         <% } %>
+                                      </ul>
+                                </div>
+
+                                   </li>
+                                <% } %>
+
+		                            <li><a href="contacts.html"><i class="icons col1-text">&#9993;</i> Contacts</a></li>
+                                <li>
+                                    <form class="search">
+                                      <input type="text" placeholder="Search">
+                                       <input class="icons col1-text" type="submit" value="&#59197;">
+                                    </form>
+                           
+                                </li>
+		                        </ul>
+
+		                    </div><!--/.nav-collapse -->
+            
+		                </div>
+		            </div>
+		        </div><!--/.navbar-->
+		        
+		    </header><!--/header -->
+
+
+          <hr>
+          <hr>
+           <hr>
+          <hr>
+		                    
+            
+            <div class="pagebody">
+
+
+	          
+			   
+		   
+		      
+		      <h2 class="text-center">Featured products</h2>
+		      <h4 class="text-center subtitle col1-text">fusce tincidunt ultricies pretium maecenas lacinia est sed lacus</h4>
+
+
+	          <div class="row">
+		        <div class="col-md-4">
+		        	<div class="product-item">
+				        <div class="thumb">
+				        	<a href="product.html">
+				        		<img src="images/sample/product1.jpg" alt="">
+				        	</a>
+				        </div>
+				        <div class="price">1299,99 €</div>
+				        <a href="product.html">
+				        	<div class="title col1-text">Pearble desktop computer</div>
+				        </a>
+				        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+				        <a class="btn col2" href="checkout.html">Add to cart</a>
+		        	</div>
+		        </div>
+		        <div class="col-md-4">
+		        	<div class="product-item">
+				        <div class="thumb">
+				        	<a href="product.html">
+				        		<img src="images/sample/product2.jpg" alt="">
+				        	</a>
+				        </div>
+				        <div class="price">1299,99 €</div>
+				        <a href="product.html">
+				        	<div class="title col1-text">Pearble desktop computer</div>
+				        </a>
+				        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+				        <a class="btn col2" href="checkout.html">Add to cart</a>
+		        	</div>
+		        </div>
+		        <div class="col-md-4">
+		        	<div class="product-item">
+				        <div class="thumb">
+				        	<a href="product.html">
+				        		<img src="images/sample/product3.jpg" alt="">
+				        	</a>
+				        </div>
+				        <div class="price">1299,99 €</div>
+				        <a href="product.html">
+				        	<div class="title col1-text">Pearble desktop computer</div>
+				        </a>
+				        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+				        <a class="btn col2" href="checkout.html">Add to cart</a>
+		        	</div>
+		        </div>
+	          </div> <!-- /row -->
+
+            </div>
+            
+            <footer>
+	        	<div class="footer-info">
+		            <div class="row">
+
+                          <div class="text">
+		                     </b>PAYMENTS AND SHIPPING </div>
+                            <div class="col-md-1"><div class="card ebay"></div></div>
+                            <div class="col-md-1"><div class="card paypal"></div></div>
+                            <div class="col-md-1"><div class="card visa"></div></div>
+                            <div class="col-md-1"><div class="card amex"></div></div>
+                            <div class="col-md-1"><div class="card cirrus"></div></div>
+                            <div class="col-md-1"><div class="card discover"></div></div>
+                            <div class="col-md-1"><div class="card ups"></div></div>
+                            <div class="col-md-1"><div class="card tnt"></div></div>
+                            <div class="col-md-1"><div class="card fedex"></div></div>
+		            </div>
+	        	</div>
+            </footer><!-- /footer -->
+            
+	        
+
+       	</div><!-- /container -->
+
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+        <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.10.2.min.js"><\/script>')</script>
+        <script src="js/vendor/bootstrap.min.js"></script>        
+        <script src="js/vendor/jquery-ui-1.10.0.custom.min.js"></script>
+        
+	    <script src="js/plugins/custom_checkbox_and_radio.js"></script>
+	    <script src="js/plugins/custom_radio.js"></script>
+	    <script src="js/plugins/bootstrap-tooltip.js"></script>
+	    <script src="js/plugins/jquery.placeholder.js"></script>
+	    <script src="js/plugins/jquery.tagsinput.js"></script>
+	    <script src="http://vjs.zencdn.net/c/video.js"></script>
+		<script src="js/plugins/jquery.sequence-min.js"></script>
+		<script src="js/plugins/jquery.magnificpopup.js"></script>
+
+        <script src="js/main.js"></script>
+        <script src="js/home.js"></script>
+        
+        <!-- ###### style editor ###### -->
+        <script src="js/plugins/bootstrap-colorpicker.js"></script>
+        <script src="js/plugins/jquery.cookie.js"></script>
+        <link rel="stylesheet" href="css/g-style-editor.css">
+        <script src="js/skin.js"></script>
+        <!-- ###### style editor ###### -->
+        
+        
+    </body>
+</html>

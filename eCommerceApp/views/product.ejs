@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+    <head>
+        <meta charset="utf-8">
+        <title><%=title%></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width">
+
+        <link rel="stylesheet" href="../css/bootstrap.min.css">
+        <link rel="stylesheet" href="../css/flat-ui.css">     
+        
+        <link rel="stylesheet" href="../css/g-main.css">
+        <link rel="stylesheet" href="../css/g-shop.css">
+        <link rel="stylesheet" href="../css/g-light.css">
+        
+        <script src="../js/vendor/modernizr-2.6.2-respond-1.1.0.min.js"></script>
+        
+    </head>
+    <body>
+        <!--[if lt IE 7]>
+            <p class="chromeframe">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">activate Google Chrome Frame</a> to improve your experience.</p>
+        <![endif]-->
+
+		<div class="onofffade"></div>	
+
+        <div class="wrap container">
+		    <header>
+		    	<div class="top-header row">
+			    	<div class="social col-md-4">
+				    	
+			    	</div>
+			    	<div class="logo col-md-4">
+			    		
+			    	</div>
+			    	<div class="info col-md-4">
+			    	
+			    	</div>
+		    	</div><!--/.top-header-->	
+		    	
+		        <div class="nav navbar-inverse">
+		            <div class="navbar-inner">
+		                <div class="container">
+		                    <a class="btn navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+		                        <i class="icons">&#9776;</i> MENU
+		                    </a>
+		                    <div class="navbar-collapse collapse">
+		                        <ul class="navbar-nav">
+		                            <li class="active"><a href="index.html"><i class="icons col1-text">&#8962;</i> Home</a></li>
+		                           <% for(var i=0; i<category.length; i++) {%>
+		                            	 
+		                            	 <li  class="dropdown" >
+		                            	 	<a href="#" class="dropdown-toggle" data-toggle="dropdown">
+		                            	 		<i class="icons col1-text">&#59197;</i> 
+		                            	   <%= category[i] %> 
+		                            	   		<b class="caret"></b>
+
+
+		                            	   	</a>
+
+
+												<div class="drop-container">
+						                         <ul class="dropdown-menu">
+
+		                            	   	  <% for(var j=0; j<distinctCatSubCat.length; j++) {%>
+		                            	   	
+		                            	   	
+			                            	   	  	
+
+		                            	   	  		<%if(category[i] == distinctCatSubCat[j]._id.productCat) { %>
+		                            	   	  				
+						                                  <li><a href="#"> <%=distinctCatSubCat[j]._id.productSubCat %></a></li>
+		                            	   	  		<% }  %>
+		                            	   	  	
+		                            	   	   <% } %>
+		                            	   	</ul>
+						                    </div>
+
+		                            	 </li>
+		                            <% } %>
+
+		                            <li><a href="contacts.html"><i class="icons col1-text">&#9993;</i> Contacts</a></li>
+		                        </ul>
+		                    </div><!--/.nav-collapse -->
+		                </div>
+		            </div>
+		        </div><!--/.navbar-->
+		        
+		    </header><!--/header -->
+		    
+			<div class="block title-block">
+				<div class="line"></div>
+				<div class="title-info">
+					<a href="feedback.html" class="feedback col1">Feedback</a>
+					<div class="anchestor-page col2 col2a-border"><b class="caret"></b><a class="colfff" href="shop.html">Shop</a></div>
+					<div class="page-icon col1">&#59197;</div>
+
+
+
+					<h1><%= product.productName %> </h1>
+
+
+					<h3 class="subtitle col1-text"><%= product.productDesc%></h3>
+				</div>
+			</div>
+           
+            <div class="pagebody">
+            			
+	        	<div class="row body">
+	        	
+		        	<div class="col-md-9 content offset">
+
+					 <div class="row">
+						<div class="col-md-7">
+							
+							<div class="product-box">
+								<img class="product-zoom" src="../images/sample/<%= product.productName %>.png"  alt=""/>
+							</div>
+								
+							
+							
+						</div>
+						
+						<div class="col-md-5">
+							
+							<div class="product-info">
+
+							
+								<div class="price"><%=product.price%><b class="asterisk col1-text">*</b></div>
+								<small class="note col1-text">(*) Shipping & Delivery extra.</small>
+								<p>Quantity</p>
+								<input class="quantity col1-border" type="number" min="1" value="1">
+								
+
+								
+								
+								<a class="btn btn-large col1">add to cart</a>
+							
+							</div>
+							
+						</div>
+					</div>
+					
+					<ul class="nav nav-tabs" id="tabproduct">
+					  <li class="active"><a href="#description">Description</a></li>
+					</ul>
+					
+					<div class="tab-content">
+					  <div class="tab-pane active" id="description">
+					  <h3 class="infotitle">Description</h3>
+
+					  <% 
+						var jsonString = JSON.stringify(product.productDetails, null, 4);
+						var str1 = jsonString.replace("{", "");
+						var str2 = str1.replace("}", "");
+						var abc = str2.replace(",", "\n");
+					%>
+						  <p> <%= abc%> </p>
+						
+					  </div>
+					  
+					  <div class="tab-pane" id="review">
+				    	 <ul class="comments">
+				    	   
+				    	 	<li class="line col2-alpha"></li>				    	 
+				    	 </ul>
+
+					  </div>
+
+			          
+
+
+					<div class="clearfix"></div>
+					</div>
+
+		            </div><!--3/4 content-->	
+		          
+		            <div class="col-md-3 sidebar col2-alpha">
+
+			          		          
+		            </div><!--1/3 sidebar-->        	
+	        	
+	           </div><!-- /row -->
+	          
+            </div><!-- /wrap -->
+            
+            <footer>
+	        	
+            </footer><!-- /footer -->
+            
+	        
+
+       	</div><!-- /container -->
+        
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+        <script>window.jQuery || document.write('<script src="../js/vendor/jquery-1.10.2.min.js"><\/script>')</script>
+        <script src="../js/vendor/bootstrap.min.js"></script>        
+        <script src="../js/vendor/jquery-ui-1.10.0.custom.min.js"></script>
+        
+	    <script src="../js/plugins/custom_checkbox_and_radio.js"></script>
+	    <script src="../js/plugins/custom_radio.js"></script>
+	    <script src="../js/plugins/bootstrap-tooltip.js"></script>
+	    <script src="../js/plugins/jquery.placeholder.js"></script>
+	    <script src="../js/plugins/jquery.tagsinput.js"></script>
+	    <script src="http://vjs.zencdn.net/c/video.js"></script>
+		<script src="../js/plugins/jquery.sequence-min.js"></script>
+		<script src="../js/plugins/jquery.magnificpopup.js"></script>
+		<script src="../js/plugins/jquery.elevateZoom-3.0.3.min.js"></script>
+
+        <script src="../js/main.js"></script>
+        <script src="../js/product.js"></script>
+
+        <!-- ###### style editor ###### -->
+        <script src="../js/plugins/bootstrap-colorpicker.js"></script>
+        <script src="../js/plugins/jquery.cookie.js"></script>
+        <link rel="stylesheet" href="../css/g-style-editor.css">
+        <script src="../js/skin.js"></script>
+        <!-- ###### style editor ###### -->
+
+        
+    </body>
+</html>

@@ -1,0 +1,21 @@
+Advantage of using MongoDB for Product Catalog over RDBMS : 
+============================================================
+
+- Product Catalog contains various items of different category & sub categories.
+- Products in Product Catalog contain differents of attributes.
+- MongoDB is an appropraite solution for this system.
+- MongoDB have a ability to handle these types of requirement. Bcoz MongoDB is stores documents in form of JSON and it is not necessary to have all attirubures to store in same collection.
+- Using MongoDB : 
+	- any entity can have any numnber of attributes.
+	- easily scalable, any number of products can be added with any number of attributes without changing any DB Model.
+	- faster reads, no JOINS required
+
+
+
+
+
+Drawback & Approach using RDBMS:
+==================================
+- create new table for every category : this approach will not only increase number of tables ( space ) but also will decrease the query performance while fetching data due to JOINS.
+- create single table with all attributes : this approach will allow all products to stored in one table but will consume space for non relevant attributes.
+- if any product attributes changes / added : data model needs to be updated
